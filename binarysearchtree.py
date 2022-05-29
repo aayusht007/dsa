@@ -13,8 +13,10 @@ class BinarySearchTree:
         
         if data<self.data:
             if self.left:
+                #to add in left side
                 self.left.add_child(data)
             else:
+                #if there is no left
                 self.left=BinarySearchTree(data)
         
         if data>self.data:
@@ -102,6 +104,6 @@ if __name__ =="__main__":
     no=[17, 4, 1, 20, 9, 23, 18, 34]
     countries = ["India","Pakistan","Germany", "USA","China","India","UK","USA"]
     new=build_tree(no)
-    print(new)
+    print(new.sum_add())
     print(new.post_order_traversal())
     print(new.pre_order_tarversal())
