@@ -59,13 +59,42 @@ def recursive_binarysearch(number_list,number_to_search,left_index,right_index):
 
     return recursive_binarysearch(number_list,number_to_search,left_index,right_index)
 
+def all_occurance(number,number_to_search):
+    index=binary_search(number,number_to_search)
+    indeces=[index]
+    # find indices on left side
+    i=index-1
+    while i>=0:
+        if number[i]==number_to_search:
+            indeces.append(i)
+        else:
+            break
+        
+        i=i-1
+
+    i=index+1
+    while i<len(number):
+        if number[i]==number_to_search:
+            indeces.append(i)
+        else:
+            break
+        i=i+1
+    
+    return(sorted(indeces))
+
+
+
 
 
 if __name__=="__main__":
-    number_list = [12, 15, 17, 19, 21, 24, 45, 67]
-    number_to_search = 67
-    print(linear_search(number_list,number_to_search))
+    # number_list = [12, 15, 17, 19, 21, 24, 45, 67]
+    # number_to_search = 67
+    # print(linear_search(number_list,number_to_search))
    
-    print(binary_search(number_list,number_to_search))
-    # index = recursive_binarysearch(number_list, number_to_search, 0, (len(number_list)-1))
-    # print(index)
+    # print(binary_search(number_list,number_to_search))
+    # # index = recursive_binarysearch(number_list, number_to_search, 0, (len(number_list)-1))
+    # # print(index)
+    number = [1,4,6,9,11,15,15,15,17,21,34,34,56]
+    number_to_search = 15
+    indice = all_occurance(number, number_to_search)
+    print(indice)
